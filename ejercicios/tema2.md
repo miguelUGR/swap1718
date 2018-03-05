@@ -1,36 +1,35 @@
 ## Ejercicio T2.2:
-##B#uscar frameworks y librerías para diferentes lenguajes que permitan hacer aplicaciones altamente disponibles con relativa facilidad.
+###Buscar frameworks y librerías para diferentes lenguajes que permitan hacer aplicaciones altamente disponibles con relativa facilidad.
 
 JAVASCRIPT:
-	+ jQuery: es una librería de JavaScript que facilita el desarrollo con éste lenguaje. Sólo sirve para hacer más fácil algunas expresiones.
++ jQuery: es una librería de JavaScript que facilita el desarrollo con éste lenguaje. Sólo sirve para hacer más fácil algunas expresiones.
 
-	+ Bootstrap: Fue creado por un empleado de twitter, Su popularidad se le debe a la facilidad de maquetación que supone usar sus clases CSS, así como el diseño visual de los principales elementos HTML de cualquier página web.
++ Bootstrap: Fue creado por un empleado de twitter, Su popularidad se le debe a la facilidad de maquetación que supone usar sus clases CSS, así como el diseño visual de los principales elementos HTML de cualquier página web.
 
-	+ Founation: Similar a bootstrap. Uno de los frameworks JavaScript, tiene un apartado específico para WebApps,
++ Founation: Similar a bootstrap. Uno de los frameworks JavaScript, tiene un apartado específico para WebApps,
 
-	+ Backbone JS: Es extremadamente ligero comparado con otros, y te permite utilizar el sistema de plantillas que quieras, otras librerías, etc.. es bastante flexible. Se apoya en Underscore y jQuery a la hora de abordar soluciones JavaScript y no tiene una curva de aprendizaje tan elevada
++ Backbone JS: Es extremadamente ligero comparado con otros, y te permite utilizar el sistema de plantillas que quieras, otras librerías, etc.. es bastante flexible. Se apoya en Underscore y jQuery a la hora de abordar soluciones JavaScript y no tiene una curva de aprendizaje tan elevada
 
 **RUBY**: creación de  aplicaciones web de forma rápida y con un mínimo esfuerzo.
 
-	+ Ruby on Rails: Es una de las frameworks más populares para Ruby. El objetivo principal de Rails es favorecer la convención antes de la configuración. Como muchas otras frameworks, se especializa en disminuir la repetición de código. Requiere una configuración mínima,
++ Ruby on Rails: Es una de las frameworks más populares para Ruby. El objetivo principal de Rails es favorecer la convención antes de la configuración. Como muchas otras frameworks, se especializa en disminuir la repetición de código. Requiere una configuración mínima,
 
-	+ Sinatra: Con Sinatra puedes estructurar tu aplicación según el problema al que quieras darle solución. Básicamente, posees bastante control al trabajar con Sinatra.
++ Sinatra: Con Sinatra puedes estructurar tu aplicación según el problema al que quieras darle solución. Básicamente, posees bastante control al trabajar con Sinatra.
 
-	+ Hobbit: Esta micro-framework ha sido desarrollada teniendo como inspiración el DSL de Sinatra. El objetivo por el cual se ha creado esta framework es para evitar que el usuario cree líneas de código innecesarias. Asimismo, al usar Hobbit podrás entender el uso de Rack y sus extensiones.
-	+ HANAMI, NYNY,CUBA etc etc.
++ Hobbit: Esta micro-framework ha sido desarrollada teniendo como inspiración el DSL de Sinatra. El objetivo por el cual se ha creado esta framework es para evitar que el usuario cree líneas de código innecesarias. Asimismo, al usar Hobbit podrás entender el uso de Rack y sus extensiones.
++ HANAMI, NYNY,CUBA etc etc.
 
 **PHP:**
 
-	+ Aura: Muy usado por aquellos desarrolladores que prefieren ir haciéndose sus propias librerías.
-	+ Slim:Nos encontramos ante uno de los mejores micro-frameworks de código abierto, sofisticado e intuitivo , se ha desarrollado desde cero, sin reutilizar “partes” de otros frameworks de este listado.
++ Aura: Muy usado por aquellos desarrolladores que prefieren ir haciéndose sus propias librerías.
++ Slim:Nos encontramos ante uno de los mejores micro-frameworks de código abierto, sofisticado e intuitivo , se ha desarrollado desde cero, sin reutilizar “partes” de otros frameworks de este listado.
 
 
-
-	+ Phalcon: Un framework diseñado para la velocidad . Está escrito en C desde sus cimientos y es con seguridad el framework más rápido existente hoy día. Ofrece la mayoría de los recursos actuales necesarios para desarrollar un proyecto ágil y fresco ( routing, controladores, vista de plantillas, ORM, caché , etc…).
++ Phalcon: Un framework diseñado para la velocidad . Está escrito en C desde sus cimientos y es con seguridad el framework más rápido existente hoy día. Ofrece la mayoría de los recursos actuales necesarios para desarrollar un proyecto ágil y fresco ( routing, controladores, vista de plantillas, ORM, caché , etc…).
 
 **PYTHON:**
-	+ Django: es un framework para aplicaciones web gratuito y open source, escrito en Python, te ayudan a desarrollar sitios web más fácil y rápidamente.
-	+ Web2py, TurboGears, Grok, Giotto.
++ Django: es un framework para aplicaciones web gratuito y open source, escrito en Python, te ayudan a desarrollar sitios web más fácil y rápidamente.
++ Web2py, TurboGears, Grok, Giotto.
 
 ***
 
