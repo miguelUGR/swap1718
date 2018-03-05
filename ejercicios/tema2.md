@@ -1,5 +1,5 @@
 ## Ejercicio T2.2:
-###Buscar frameworks y librerías para diferentes lenguajes que permitan hacer aplicaciones altamente disponibles con relativa facilidad.
+### Buscar frameworks y librerías para diferentes lenguajes que permitan hacer aplicaciones altamente disponibles con relativa facilidad.
 
 JAVASCRIPT:
 + jQuery: es una librería de JavaScript que facilita el desarrollo con éste lenguaje. Sólo sirve para hacer más fácil algunas expresiones.
@@ -33,8 +33,9 @@ JAVASCRIPT:
 
 ***
 
-##Ejercicio T2.3:
-###¿Cómo analizar el nivel de carga de cada uno de los subsistemas en el servidor?
+## Ejercicio T2.3:
+
+### ¿Cómo analizar el nivel de carga de cada uno de los subsistemas en el servidor?
 
 + Top permite conocer en tiempo real la actividad del procesador, así como la lista con los procesos que hacen un mayor uso de la CPU.
 
