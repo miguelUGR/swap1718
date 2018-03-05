@@ -48,18 +48,33 @@ Por supuesto debemos instalar **apt-get install curl.**
 
 Debemos crear un archivo html llamado hora en /var/www/html/hola.html
 Que dentro contenga :
+
 <HTML> 
 <BODY> 
 Esto FUNCIONA
 </BODY> </HTML>
 
++ Para la comunicacion mediante curl:
+  curl http:// direccionIp maquina a la que quieres acceder
+  y se mostrara el archivo html que hemos creado con anterioridad.
+
+  ![img6](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica1/img6.png)
+
 + Para la comunicación entre las maquinas:
 	ping “direccion ip de la tarjeta red enp0s8” de la otra maquina.
+
+  ![img7](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica1/img7.png)
+
 + Para la comunicación con el exterior(osea internet)
 	ping www.google.com
 	si tenemos problemas, modificamos las ips, de las dos maquinas.
+
+![img8](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica1/img8.png)
+
 + Para comunicación entre ellas mediante ssh
    No estando en modo root ponemos:
 	- ssh NombreUsuarioOtraMaquina@direccionIpOtraMaquina
 	- yes
   - contraseña del usuario de la otra maquina.
+
+  ![img9](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica1/img9.png)
