@@ -12,3 +12,54 @@ En Red y pestaña Redes—> solo anfitrión, añadimos una mas.
 De esta manera, ya tendríamos la posibilidad de darle aceptar como se ve en la imagen anterior.
 
 ![img2](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica1/img2.png)
+
+## 2. Después de la instalación
+Una vez instalado el Ubuntu server debemos de instalar vi.
+Luego modificar el archivo interfaces estando como root.
+**vi /etc/network/interfaces**
+Como en la configuración de Ubuntu server pusimos que la red principal fuese la enp0s3 entonces:
+Tenemos la ret NAT==enp0s3 y la anfitrión==enp0s8. Debemos poner primero en el fichero la
+Nat , que actua como principal y luego la anfitrion en estática y lo demás.
+
+![img3](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica1/img3.png)
+
+El rango de la ip debemos de mirar en :
+-Preferencias—Red—Red solo-anfitrion—Boton derecho sobre la red que hay y en EDITAR—Servidor DHCP.
+
+![img4](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica1/img4.png)
+
+Observamos que en Direccion del servidor, tiene marcado 192.168.56.100
+Eso quiere decir que las direcciones  que pongamos a las maquinas (adaptador red-anfitrion) deben de estar por encima de 100 y por debajo de 254.
+
+### Cosas a tener en cuenta.
+
+Tener instalado el ufw para iniciar el cortafuegos y hábilitar los puertos ssh y apache
+**apt-get install ufw
+Ufw enable— ufw allow 22(o tambien http) — ufo allow 80—
+ufw status para comprobarlo.**
+
+![img5](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica1/img5.png)
+
+### Para finalizar:
+
+Lo que nos pide es hacer ping entre ellas y ha google.
+Tambien una conexión ssh y la utilización de curl.
+Por supuesto debemos instalar **apt-get install curl.**
+
+Debemos crear un archivo html llamado hora en /var/www/html/hola.html
+Que dentro contenga :
+<HTML> 
+<BODY> 
+Esto FUNCIONA
+</BODY> </HTML>
+
++ Para la comunicación entre las maquinas:
+	ping “direccion ip de la tarjeta red enp0s8” de la otra maquina.
++ Para la comunicación con el exterior(osea internet)
+	ping www.google.com
+	si tenemos problemas, modificamos las ips, de las dos maquinas.
++ Para comunicación entre ellas mediante ssh
+   No estando en modo root ponemos:
+	- ssh NombreUsuarioOtraMaquina@direccionIpOtraMaquina
+	- yes
+  - contraseña del usuario de la otra maquina.
