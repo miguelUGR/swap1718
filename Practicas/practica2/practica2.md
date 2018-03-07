@@ -4,6 +4,7 @@
 + Instalar la herramienta RSYNC 
 **sudo apt-get install rsync**
 + Creamos un usuario nuevo (mac) y luego añadir los privilegios diciento como si fuese dueño de la carpeta var/www/
+
 ![img1](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica2/img1.png)
 
 
@@ -11,11 +12,13 @@
 **Todo esto solo se puede hacer si estoy en la maquina2 con usuario mac ya que he indicado el directorio /var/www/**
 En las siguiente imagenes se puede observar el procedimiento.
 IMPORTANTE NO HACERLO EN USUARIO ROOT
+
 ![img2](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica2/img2.png)
 
 + Con cual con **curl** accedo al los archivos hola.html de la otra maquina
 y veo que los dos tienen lo mismo.
 Quiere decir que he clonado, correctamente la carpera de la maquina1 a la maquina2
+
 ![img3](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica2/img3.png)
 
 ## 4. Acceso sin contraseña para ssh
@@ -27,6 +30,7 @@ el directorio ~/.ssh/  (id_rsa) para contraseñas privadas y (id_rsa.pub) para l
 Pero al ser usuario **mac** se guardan en: */home/mac/.ssh/*
 En la imagen siguiente se puede ver.
 Todo esto lo realizamos en la maquina2.
+
 ![img4](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica2/img4.png)
 
 + Copiamos la clave publica del fichero (id_rsa.pub) a la maquina1 de la siguiente manera.
@@ -49,5 +53,6 @@ Edito el fichero /etc/crontab y añado la nueva regla
 y efectivamente se actualiza de marena automatica.
 IMPORTANTE DESTACAR, que si no hubiesemos echo el paso 4, esto seria imposible porque 
 nos pediria contraseña del usuario maquina1, cosa que no podemos hacerlo desde crontab.
+
 ![img6](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica2/img6.png)
 
