@@ -76,5 +76,11 @@ Esto FUNCIONA
 	- ssh NombreUsuarioOtraMaquina@direccionIpOtraMaquina
 	- yes
   - contraseña del usuario de la otra maquina.
+  - **Si Las dos maquinas tubiesen mismo nombre de usuario** bastaria con poner:
+    **ssh direcionIPOtraMaquina** 
+
+    Este tipo de conexion, sirve :
+    Yo estoy en maquina2 conectado mediante ssh a maquina1 y hago desde maquina2
+    por ejemplo una creacion de un archivo, realmente se crea en la maquina1.
 
   ![img9](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica1/img9.png)
