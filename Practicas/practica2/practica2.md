@@ -4,7 +4,9 @@
 + Instalar la herramienta RSYNC 
 **sudo apt-get install rsync**
 + Creamos un usuario nuevo (mac) y luego añadir los privilegios diciento como si fuese dueño de la carpeta var/www/
-
++ Si accedo a la maquina directamente con usuario (mac) me dice (usuario no esta en el archivo sudoers)
+hay que ir a /etc/sudoers/ y poner: mac ALL=(ALL)ALL, debajo de root.
+Todo esto debemos hacerlo conectandome con el otro usuario ubuntuX para acceder a root
 ![img1](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica2/img1.png)
 
 

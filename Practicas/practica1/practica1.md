@@ -20,6 +20,7 @@ Luego modificar el archivo interfaces estando como root.
 Como en la configuración de Ubuntu server pusimos que la red principal fuese la enp0s3 entonces:
 Tenemos la ret NAT==enp0s3 y la anfitrión==enp0s8. Debemos poner primero en el fichero la
 Nat , que actua como principal y luego la anfitrion en estática y lo demás.
+IMPORTANTE , quitar el GATEWAY porque da problemas para que la maquina se conecte a internet.
 
 ![img3](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica1/img3.png)
 
