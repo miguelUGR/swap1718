@@ -5,9 +5,10 @@ Concretamente, para hacer la instalación, se recomienda ejecutar las siguiente
 + sudo apt-get update 
 + sudo apt-get dist-upgrade 
 + sudo apt-get autoremove
+
+
 **Importate tener el puerto 80 libre.**
 Osea parar apache: service apache2 stop 
-
 Para no tener problemas en un futuro, desistalo apache.
 + sudo apt-get install nginx 
 * sudo systemctl start nginx
