@@ -39,7 +39,7 @@ En la imagen siguinte hago un curl a la pagina hola.html que tengo en cada una d
 
 **NOTA:** Importante descomentar la siguiente linea del archivo (/etc/nginx/nginx.conf) que se ve en la siguiente imagen.  
 Es debido para que no tome como defecto las pagina de nginx del valanceador.
-![img3](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img3.png)
+![img3a](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img3a.png)
 ### Otras opciones para nginx
 
 Podremos añadir diferentes características a nginx. Si queremos que las máquinas soporte más carga de trabajo usaremos una configuración como esta:  
