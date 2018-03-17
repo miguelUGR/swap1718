@@ -71,6 +71,8 @@ A continuacion lo que voy a hacer es añadir (WEIGHT) a la configuracion del arc
 
 Cojo un 4 maquina(modifico la ip para que sea distinta) y envio solicitudes al balanceador en las siguientes imagenes se puede ver todo
 perfectamente.  
+La maquina que actua como cuarta es la del abajo derecha, balanceador= abajo izq.  
+**TAMBIEN** puedo hacer peticiones al balanceador a si mismo
 
 ![img4](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img4.png)
 ![img5](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img5.png)
