@@ -26,3 +26,28 @@ Para probar que esto funciona deberemos de usar el comando de cURL hacia nuestra
 En la imagen sigueonte hago un curl a la pagina hola.html que tengo en cada una de las maquinas
 
 ![img2](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img2.png)
+
+### Otras opciones para nginx
+
+Podremos añadir diferentes características a nginx. Si queremos que las máquinas soporte más carga de trabajo usaremos una configuración como esta:  
+
+**Cada 3 peticiones la máquina 1 soporta una y la 2, dos.**
+upstream apaches {
+  server 172.16.168.130 weight=1;
+  server 172.16.168.131 weight=2;
+}  
+Para hacer que la misma máquina soporte las peticiones provenientes de otra y no cambie de servidor, deberemos ajustarlo ya que sino podrían darse errores.  
+
+upstream apaches {
+  ip_hash;
+  server 172.16.168.130;
+  server 172.16.168.131;
+}  
+Para realizar una conexion con persistencia de múltiples peticiones HTTP en lugar de abrir una conexión nueva cada vez deberemos de usar:  
+
+upstream apaches {
+  server 172.16.168.130;
+  server 172.16.168.131;
+  keepalive 3;
+}
+Entre otras muchas opciones que podemos encontrar en el guión del pdf.
