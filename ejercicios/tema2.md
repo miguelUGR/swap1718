@@ -44,3 +44,22 @@ JAVASCRIPT:
 + Apache Benchmark. Indicamos la URL a testear, el número de peticiones que queremos realizar y el número de peticiones concurrentes .
 
 + Nagios es un sistema de monitorización de redes ampliamente utilizado, de código abierto, que vigila los equipos (hardware) y servicios (software) que se especifiquen, alertando cuando el comportamiento de los mismos no sea el deseado. Entre sus características principales figuran la monitorización de servicios de red (SMTP, POP3, HTTP, SNMP...), la monitorización de los recursos de sistemas hardware (carga del procesador, uso de los discos, memoria, estado de los puertos...), independencia de sistemas operativos, posibilidad de monitorización remota mediante túneles SSL cifrados o SSH, y la posibilidad de programar plugins específicos para nuevos sistemas.”
+
+## Ejercicio T2.4:
+### Buscar ejemplos de balanceadores software y hardware (productos comerciales).  
+Entre los balanceadores de carga software más conocidos están HAProxy y Nginx, También están  
++ Zen Load Balancer
++ Octopus Load Balancer
++ Apache: mod_proxy_balancer
++ Varnish
++ Servitux  
+
+### Buscar productos comerciales para servidores de aplicaciones.  
+Servidores de aplicaciones Java EE:
+
++ WebLogic de Oracle.
++ WebSphere de IBM.
++ JBoss AS de JBoss (RedHat).
++ Geronimo y TomEE de Apache.
+
+Buscar productos comerciales para servidores de almacenamiento.
