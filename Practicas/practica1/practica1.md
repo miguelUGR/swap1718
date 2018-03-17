@@ -36,8 +36,8 @@ Eso quiere decir que las direcciones  que pongamos a las maquinas (adaptador red
 ### Cosas a tener en cuenta.
 
 Tener instalado el ufw para iniciar el cortafuegos y hábilitar los puertos ssh y apache
-**apt-get install ufw
-Ufw enable— ufw allow 22(o tambien http) — ufo allow 80—
+**apt-get install ufw  
+Ufw enable— ufw allow 22(o tambien http) — ufo allow 80—  
 ufw status para comprobarlo.**
 
 ![img5](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica1/img5.png)
