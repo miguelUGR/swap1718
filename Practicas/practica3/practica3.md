@@ -66,13 +66,15 @@ upstream apaches
   server 172.16.168.131;  
   keepalive 3;  
 }  
+
 Entre otras muchas opciones que podemos encontrar en el guión del pdf.  
 A continuacion lo que voy a hacer es añadir (WEIGHT) a la configuracion del archivo y  que la maquina con ip=...108 le lleguen el doble de solicitudes que a la maquina con ip=...103.  
 
 Cojo un 4 maquina(modifico la ip para que sea distinta) y envio solicitudes al balanceador en las siguientes imagenes se puede ver todo
 perfectamente.  
-La maquina que actua como cuarta es la del abajo derecha, balanceador= abajo izq.   
-**TAMBIEN:** puedo hacer peticiones al balanceador a si mismo
+La maquina que actua como cuarta es la del abajo derecha, balanceador= abajo izq.  
+
+**TAMBIEN:** puedo hacer peticiones al balanceador a si mismo  
 
 
 ![img4](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img4.png)
