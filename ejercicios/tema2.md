@@ -62,4 +62,29 @@ Servidores de aplicaciones Java EE:
 + JBoss AS de JBoss (RedHat).
 + Geronimo y TomEE de Apache.
 
-Buscar productos comerciales para servidores de almacenamiento.
+### Buscar productos comerciales para servidores de almacenamiento.
+
++ Servidor almacenamiento DELL
++ Dell Compellent FS8600
++ HP ConvergedSystem 200-HC StoreVirtual System
++ IBM EXP2500 Storage Enclosure
+
+# Ejercicio TEMA 3
+
+
+## Ejercicio T3.1:
+**Buscar con qué órdenes de terminal o herramientas gráficas podemos configurar bajo Windows y bajo Linux el enrutamiento del tráfico de un servidor para pasar el tráfico desde una subred a otra.**  
+
+En Windows Server 2008 y 2012 se incluye un "Servicio de enrutamiento y acceso remoto" que se puede agregar al servidor mediante un simple asistente.  
+
+En Linux, la configuración de red está en /etc/network/interfaces, archivo donde podemos establecer las configuraciones de red. Para crear una ruta, podemos utilizar el comando route y añadirla o borrarla con add o del respectivamente. Si lo que queremos es mantener estas rutas tras reiniciar el servidor, añadimos la ruta al archivo /etc/network/interfaces mediante la línea up route add -net ....
+
+##Ejercicio T3.2:  
+**Buscar con qué órdenes de terminal o herramientas gráficas podemos configurar bajo Windows y bajo Linux el filtrado y bloqueo de paquetes.**
+
+Cisco CSS 11501	Brocade ServerIron ADX 1000  
+Precio	£4.019.99	£6,479.99  
+Peso	8,16Kg	17Kg  
+RAM	-	8GB  
+Conexiones	Ethernet, Fast Ethernet	Ethernet, Fast Ethernet, Gigabit Ethernet  
+Metetodo. Autent.	DES, T.DES, RSA, RC4, TLS 1.0, SSL 3.0/2.0	SSL  
