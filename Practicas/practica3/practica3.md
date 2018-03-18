@@ -118,5 +118,5 @@ La maquina que lanza las peticiones debe tener instalado APACHE.
 Ejecutamos lo siguiente:  
 + ab -n 1000 -c 10 http://ipMaquinaBalanceadora/<archivo>.html
 
--n indica el número de peticiones
+-n indica el número de peticiones  
 -c indica que las peticiones se harán concurrentemente, de 10 en 10
