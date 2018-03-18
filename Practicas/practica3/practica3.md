@@ -120,3 +120,10 @@ Ejecutamos lo siguiente:
 
 -n indica el número de peticiones  
 -c indica que las peticiones se harán concurrentemente, de 10 en 10
+
++ Primero creo archivos.txt para guardar el contenido de la salida de la ejecucion del comando (ab -n......)  
+En las imagenes anteriores veremos alta carga en los dos balanceadores (nginx y haproxy)
+
+![img10](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img10.png)  
+
+![img11](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img11.png)
