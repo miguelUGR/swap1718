@@ -71,8 +71,7 @@ upstream apaches
 Entre otras muchas opciones que podemos encontrar en el guión del pdf.  
 A continuacion lo que voy a hacer es añadir (WEIGHT) a la configuracion del archivo y  que la maquina con ip=...108 le lleguen el doble de solicitudes que a la maquina con ip=...103.  
 
-Cojo un 4 maquina(modifico la ip para que sea distinta) y envio solicitudes al balanceador en las siguientes imagenes se puede ver todo
-perfectamente.  
+**Cojo un 4 maquina(modifico la ip para que sea distinta) y envio solicitudes al balanceador en las siguientes imagenes se puede ver todo perfectamente.**  
 La maquina que actua como cuarta es la del abajo derecha, balanceador= abajo izq.  
 
 **TAMBIEN:** puedo hacer peticiones al balanceador a si mismo  
@@ -106,7 +105,18 @@ Ha continuacion modifico como con nginx anteriormente para que con  **weight** a
 
 ![img8](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img8.png)
 
-En la siguiente imagen podemos observar como con la maquina de la parte derecha,abajo del todo realiza peticiones con curl al balanceador HAPROXY  
+En la siguiente imagen podemos observar como con la maquina de la parte derecha de abajo del todo realiza peticiones con curl al balanceador HAPROXY
 y vemos que se realiza una peticion a la maquina con ip=...103 y dos peticiones a la maquina con ip=....108  
 
 ![img9](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img9.png)
+
+# 5. Someter a una alta carga el servidor balanceado  
+
+Para probar nuestro balanceador vamos a usar Apache Benchmark desde otra máquina nueva que hará peticiones a nuestro balanceador y él se encargará de dirigirlas a un lugar u otro.  
+La maquina que lanza las peticiones debe tener instalado APACHE.  
+
+Ejecutamos lo siguiente:  
++ ab -n 1000 -c 10 http://ipMaquinaBalanceadora/<archivo>.html
+
+-n indica el número de peticiones
+-c indica que las peticiones se harán concurrentemente, de 10 en 10
