@@ -2,6 +2,7 @@
 ## 3.1 Instalar nginx en Ubuntu Server
 ### PRIMERO LUGAR:  
 Creo una nueva maquina, balanceadora, solo instalando servidor ssh.  
+Usuario:balanceador login: admin  
 Instalo:  
 + curl
 + ufw--> habilito y abro los puerto 22 y 80  
@@ -80,5 +81,32 @@ La maquina que actua como cuarta es la del abajo derecha, balanceador= abajo izq
 ![img4](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img4.png)
 
 
-![img5](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img5.png)
+![img5](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img5.png)  
 
+
+# 4.1. Instalar haproxy  
+
++ sudo apt-get install haproxy
+
+## 4.2. Configuración básica de haproxy como balanceador  
+Una vez instalado , modificamos el archivo **/etc/haproxy/haproxy.cfg**  
+En la siguiente imagen se ve como queda.
+
+![img6](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img6.png)  
+
+Con esta configuración el balanceador debería utilizar el algoritmo Round-Robin, es decir, cada vez que mandamos una petición a la máquina balanceadora, ésta manda una al servidor 1 y la siguiente al servidor 2, alternándolos.  
+Reiniciamos poniendo el comando:  
++ sudo /usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg
+
+Debemos tener las dos maquinas back-end encendidas y me salen 3 WARNIG no lo veo de mayor gravedad  
+
+![img7](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img7.png)
+
+Ha continuacion modifico como con nginx anteriormente para que con  **weight** acceda a la maquina Ip:....108 el doble de veces que la maquina con Ip:...103  
+
+![img8](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img8.png)
+
+En la siguiente imagen podemos observar como con la maquina de la parte derecha,abajo del todo realiza peticiones con curl al balanceador HAPROXY  
+y vemos que se realiza una peticion a la maquina con ip=...103 y dos peticiones a la maquina con ip=....108  
+
+![img9](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img9.png)
