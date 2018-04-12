@@ -7,124 +7,88 @@ Esto se debe hacer en las dos maquinas que tenemos como servidoras.
 + service apache2 restart  
 3º CREAMOS DIRECTORIO LA CERTIFICACION. 
 + mkdir /etc/apache2/ssl  
+4º CREAMOS LOS FICHEROS  
 + openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout
 /etc/apache2/ssl/apache.key -out /etc/apache2/ssl/apache.crt  
-
 Nos pedira datos como el continente,provincia,ciudad,correo etc.
 ![img1](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica4/img1.png)  
 
-Editamos el archivo de configuración del sitio default-ssl:
+5º Activamos el sitio default--ssl y reiniciamos apache:
++ a2ensite default-ssl  y   service apache2 reload
+### IMPORTANTE que la maquina M2,M1 ,BALANCEADOR Y CLIENTE tengan IP DISTINTAS  
+
+EN LA MAQUINA M2 hago lo mismo menos la creacion de los certificados porque ya lo hemos hecho en la M1.  
+1º ACTIVAMOS SSL.  
++ a2enmod ssl 
+2º REINICIAMOS APACHE.  
++ service apache2 restart  
+3º CREAMOS DIRECTORIO LA CERTIFICACION. 
++ mkdir /etc/apache2/ssl  
+4º Activamos el sitio default--ssl y reiniciamos apache:
++ a2ensite default-ssl   y   service apache2 reload
+
+
+Editamos el archivo de configuración del sitio default-ssl: en las dos maquinas.  
 + vi /etc/apache2/sites-available/default-ssl
 Y agregamos estas lineas debajo de donde pone SSLEngine on:
 + SSLCertificateFile /etc/apache2/ssl/apache.crt SSLCertificateKeyFile /etc/apache2/ssl/apache.key  
 
 ![img2](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica4/img2.png)  
 
-Activamos el sitio default--ssl y reiniciamos apache:
-+ a2ensite default-ssl service apache2 reload
-
-## 3.2. Balanceo de carga usando nginx
-
-Para configuar nginx tendremos que modificar el contenido de **/etc/nginx/conf.d/default.conf** eliminandolo y poner lo que citaré a continuación.  
-Puede que el archivo default.conf no exista, por lo que deberemos crearlo.
-
-![img1](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img1.png)
-
-Una vez que lo tenemos configurado, podemos lanzar el servicio nginx como sigue:
-+ sudo systemctl start nginx o service nginx start
-
-Para probar que esto funciona deberemos de usar el comando de cURL hacia nuestras máquinas para ver si estas se están viendo.  
-En la imagen siguinte hago un curl a la pagina hola.html que tengo en cada una de las maquinas  
-### IMPORTANTE desactivar que la maquina 2 actualice el var/www/html de la maquina 1  
-
-![img2](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img2.png)
-
-**NOTA:** Importante descomentar la siguiente linea del archivo (/etc/nginx/nginx.conf) que se ve en la siguiente imagen.  
-Es debido para que no tome como defecto las pagina de nginx del valanceador.
-![img3a](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img3a.png)
-### Otras opciones para nginx
-
-Podremos añadir diferentes características a nginx. Si queremos que las máquinas soporte más carga de trabajo usaremos una configuración como esta:  
-
-**Cada 3 peticiones la máquina 1 soporta una y la 2, dos.**  
-upstream apaches  
-{  
-  server 172.16.168.130 weight=1;  
-  server 172.16.168.131 weight=2;  
-}  
-Para hacer que la misma máquina soporte las peticiones provenientes de otra y no cambie de servidor, deberemos ajustarlo ya que sino podrían darse errores.  
-
-upstream apaches  
-{  
-  ip_hash;  
-  server 172.16.168.130;  
-  server 172.16.168.131;  
-}  
-Para realizar una conexion con persistencia de múltiples peticiones HTTP en lugar de abrir una conexión nueva cada vez deberemos de usar:  
-
-upstream apaches  
-{  
-  server 172.16.168.130;  
-  server 172.16.168.131;  
-  keepalive 3;  
-}  
-
-Entre otras muchas opciones que podemos encontrar en el guión del pdf.  
-A continuacion lo que voy a hacer es añadir (WEIGHT) a la configuracion del archivo y  que la maquina con ip=...108 le lleguen el doble de solicitudes que a la maquina con ip=...103.  
-
-**Cojo un 4 maquina(modifico la ip para que sea distinta) y envio solicitudes al balanceador en las siguientes imagenes se puede ver todo perfectamente.**  
-La maquina que actua como cuarta es la del abajo derecha, balanceador= abajo izq.  
-
-**TAMBIEN:** puedo hacer peticiones al balanceador a si mismo  
+Comporvamos que funciona realizando en la misma maquina  M1 **curl -k https://Ip:maquina1**  y  en M2 **curl -k https://Ip:maquina2** 
 
 
-![img4](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img4.png)
++ Copiamos los certificados a la M2 y al balanceador (TODO ESTO COMO USUARIO ROOT).  
+**scp /etc/apache2/ssl/* balanceador@192.162.56.110:/tmp/** porque es un lugar donde puede escribir todo el mundo  
+y luego en la maquina balanceadora lo paso a un sitio privado como **mv /tmp/apache.crt  /etc/ssl/**  para que nadie pueda tocar.  
+Lo mismo con M2:  
+**scp /etc/apache2/ssl/* ubuntu1@192.162.56.108:/tmp/**
+**mv /tmp/apache.crt  /etc/apache2/ssl/**   
+**mv /tmp/apache.key  /etc/apache2/ssl/**  
+
+Si me da problemas como en la imagen:
+![img6](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica4/img6.png)
+borramos el archivo  que esta en la ruta **.ssh/known_hosts**   o  
+me voy a la direcion **/root** y ejecuto: **rm -rf .ssh**  es una eliminacion recursiva incluyendo la carpeta
 
 
-![img5](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img5.png)  
 
 
-# 4.1. Instalar haproxy  
++ Configuramos el balanceador Nginxpara que desde un cliente acepte peticiones https  
 
-+ sudo apt-get install haproxy
+Configuración nginx /etc/nginx/conf.d/default.conf  
 
-## 4.2. Configuración básica de haproxy como balanceador  
-Una vez instalado , modificamos el archivo **/etc/haproxy/haproxy.cfg**  
-En la siguiente imagen se ve como queda.
+![img4](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica4/img4.png)
 
-![img6](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img6.png)  
+Para hacer una comprobacion desde un cliente a traves del balanceador debemos abrir el puerto 443.  
+Como se ve en la imagen no esta operativo y debemos abrirlo.
+![img5](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica4/img5.png)  
 
-Con esta configuración el balanceador debería utilizar el algoritmo Round-Robin, es decir, cada vez que mandamos una petición a la máquina balanceadora, ésta manda una al servidor 1 y la siguiente al servidor 2, alternándolos.  
-Reiniciamos poniendo el comando:  
-+ sudo /usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg
+Añadimos la regla:
++ **iptables -A INPUT -m state --state NEW -p tcp --dport 443 -j ACCEPT** pero tiene un defecto que no se guarda.
 
-Debemos tener las dos maquinas back-end encendidas y me salen 3 WARNIG no lo veo de mayor gravedad  
+Lo mejor es: me creo el script.sh con los contenidos que expongo a continuacion  y envio el script a la maquina balanceador y M2 y cliente
+Contendido del script:  
+### (1) Eliminar todas las reglas (configuración limpia) iptables -F
+iptables -X
+iptables -Z
+iptables -t nat -F
+### política por defecto: aceptar todo
+iptables −P  
+iptables −P  
+iptables −P
+iptables -L
+INPUT ACCEPT  
+OUTPUT ACCEPT  
+FORWARD ACCEPT  
+iptables -n -v
 
-![img7](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img7.png)
+Ejecuto el script para tener todo abierto y no tener problemas.
+Ya si puedo hacer desde el cliente un curl -k https://Ip_balanceador y me redirtije a las maquinas.
 
-Ha continuacion modifico como con nginx anteriormente para que con  **weight** acceda a la maquina Ip:....108 el doble de veces que la maquina con Ip:...103  
 
-![img8](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img8.png)
 
-En la siguiente imagen podemos observar como con la maquina de la parte derecha de abajo del todo realiza peticiones con curl al balanceador HAPROXY
-y vemos que se realiza una peticion a la maquina con ip=...103 y dos peticiones a la maquina con ip=....108  
 
-![img9](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img9.png)
+## EJERCICIO 2: Configurar las reglas del cortafuegos con IPTABLES para asegurar el acceso a uno de los servidores web, permitiendo el acceso por los puertos de HTTP y HTTPS a dicho servidor
 
-# 5. Someter a una alta carga el servidor balanceado  
 
-Para probar nuestro balanceador vamos a usar Apache Benchmark desde otra máquina nueva que hará peticiones a nuestro balanceador y él se encargará de dirigirlas a un lugar u otro.  
-La maquina que lanza las peticiones debe tener instalado APACHE.  
-
-Ejecutamos lo siguiente:  
-+ ab -n 1000 -c 10 http://ipMaquinaBalanceadora/<archivo>.html
-
--n indica el número de peticiones  
--c indica que las peticiones se harán concurrentemente, de 10 en 10
-
-+ Primero creo archivos.txt para guardar el contenido de la salida de la ejecucion del comando (ab -n......)  
-En las imagenes anteriores veremos alta carga en los dos balanceadores (nginx y haproxy)
-
-![img10](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img10.png)  
-
-![img11](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica3/img11.png)
