@@ -47,7 +47,7 @@ Lo mismo con M2:
 **mv /tmp/apache.key  /etc/apache2/ssl/**  
 
 Si me da problemas como en la imagen:
-![img6](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica4/img6.png)
+![img6](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica4/img6.png)  
 borramos el archivo  que esta en la ruta **.ssh/known_hosts**   o  
 me voy a la direcion **/root** y ejecuto: **rm -rf .ssh**  es una eliminacion recursiva incluyendo la carpeta
 
@@ -58,7 +58,7 @@ me voy a la direcion **/root** y ejecuto: **rm -rf .ssh**  es una eliminacion re
 
 Configuración nginx /etc/nginx/conf.d/default.conf  
 
-![img4](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica4/img4.png)
+![img4](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica4/img4.png)  
 
 Para hacer una comprobacion desde un cliente a traves del balanceador debemos abrir el puerto 443.  
 Como se ve en la imagen no esta operativo y debemos abrirlo.
