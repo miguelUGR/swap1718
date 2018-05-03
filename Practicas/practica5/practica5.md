@@ -112,7 +112,12 @@ En mi caso sin embargo, el valor era null y mostraba un mensaje de error: "The s
 + start slave;  
 
 Todo funciona correctamente.  
-OJO!! que el position siempre cambia y debemos modificarlo y tambien debemos poner el FIle correspondiente.
+OJO!! que cada vez que iniciamos  el position siempre cambia, debemos modificarlo y tambien debemos poner el FIle correspondiente, porque tambien cambia.
+Hacemos un (show master status\g ) y comprobamos el FILE y POSITION.  
+Ej: en el el cliente hacer:  
++ stop slave;
++ CHANGE MASTER TO MASTER_LOG_FILE='...' , MASTER_LOG_POS=...;
++ start slave;
 
 ![img8](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica5/img8.png)  
 
