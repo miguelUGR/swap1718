@@ -126,3 +126,5 @@ Para borrar base de datos: drop database Nombre_de_la_base_de_datos;
 
 
 Metemos nuevos datos en la base de datos del MAESTRO y comprobamos si se ha actualizado en el esclavo.
+
+![img9](https://github.com/miguelUGR/swap1718/blob/master/Practicas/practica5/img9.png)
